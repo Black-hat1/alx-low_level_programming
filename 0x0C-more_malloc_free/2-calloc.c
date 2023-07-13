@@ -9,20 +9,20 @@
   * NULL if malloc fails.
   * Pointer to memory allocated if successful.
   */
-void *_calloc(unsigned int amemb, unsigned int size)
+void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	void *p;
 	unsigned int a;
 
-	if (amemb == 0 || size == 0)
+	if (nmemb == 0 || size == 0)
 		return (NULL);
-	p = malloc(amemb * size);
+	p = malloc(nmemb * size);
 	if (p == NULL)
 	{
 		return (NULL);
 	}
 
-	for (a = 0; a < (amemb * size); a++)
+	for (a = 0; a < (nmemb * size); a++)
 	{
 		*((char *)(p) + a) = 0;
 	}
