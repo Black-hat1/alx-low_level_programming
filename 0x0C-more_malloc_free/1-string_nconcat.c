@@ -2,53 +2,51 @@
 #include <stdlib.h>
 
 /**
- * string_nconcat - .....
- * @q1: .....
- * @q2: .....
- * @w: ....
- *
- * Return: ....
- */
-char *string_nconcat(char *q1, char *q2, unsigned int w)
+  * string_nconcat - ...
+  * @s1: ...
+  * @s2: ...
+  * @n: ...
+  *
+  * Return: ...
+  */
+char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int a = 0, b = 0, c = 0, d = 0;
+	unsigned int i = 0, j = 0, k = 0, l = 0;
 	char *str;
 
-	if (q1 == NULL)
-		q1 = "";
-	if (q2 == NULL)
-		q2 = "";
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
 
-	while (q1[a])
-		a++;
+	while (s1[i])
+		i++;
 
-	while (q2[c])
-		c++;
+	while (s2[k])
+		k++;
 
-	if (w >= c)
-		d = a + c;
+	if (n >= k)
+		l = i + k;
 	else
-		d = a + w;
+		l = i + n;
 
-	str = malloc(sizeof(char) * d + 1)
-		if (str == NULL)
-			return (NULL);
+	str = malloc(sizeof(char) * l + 1);
+	if (str == NULL)
+		return (NULL);
 
-	c = 0;
-	while (b < d)
+	k = 0;
+	while (j < l)
 	{
-		if (b <= a)
-			str[b] = q1[b];
+		if (j <= i)
+			str[j] = s1[j];
 
-		if (j <= a)
+		if (j >= i)
 		{
-			str[j] = q2[c];
-			b++;
+			str[j] = s2[k];
+			k++;
 		}
-		b++;
+		j++;
 	}
-	str[b] = '\0';
+	str[j] = '\0';
 	return (str);
 }
-
-
