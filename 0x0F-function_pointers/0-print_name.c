@@ -7,14 +7,18 @@
  *
  * Return: void
  */
-void print_name(char *name, void (*f)(char *));
+void print_name(char *name, void (*f)(char *))
+{
+    f(name);
 }
 
-void print_with_hello(char *name) {
+void print_with_hello(char *name)
+{
     printf("Hello, %s!\n", name);
 }
 
-int main() {
+int main()
+{
     char name[] = "John";
     print_name(name, print_with_hello);
 
