@@ -1,19 +1,51 @@
 #include "function_pointers.h"
 
 /**
- * is_98 - check if a number is equal to 98
- * @elem: the integer to check
+ * int_index - searches for an integer
+ * @array: array to serch through
+ * @size: size of array
+ * @cmp: function used to compare
  *
- * Return: 0 if false, something else otherwise.
+ * Return: first index for which cmp doesn't return 0, or -1
  */
-int int_index(int *array, int size, int (*cmp)(int));
+int int_index(int *array, int size, int (*cmp)(int))
 {
-    for (int i = 0; i < size; i++)
-    {
-        if (cmp(array[i]))
+	int i, r;
+
+	if (size > 0 && array && cmp)
 	{
-            return i;
-        }
-    }
-    return -1;
+		for (i = 0; i < size; i++)
+		{
+			r = cmp(array[i]);
+			if (r)
+				break;
+		}
+		if (i < size)
+			return (i);
+	}
+	return (-1);
+}/**
+ * int_index - searches for an integer
+ * @array: array to serch through
+ * @size: size of array
+ * @cmp: function used to compare
+ *
+ * Return: first index for which cmp doesn't return 0, or -1
+ */
+int int_index(int *array, int size, int (*cmp)(int))
+{
+	int i, r;
+
+	if (size > 0 && array && cmp)
+	{
+		for (i = 0; i < size; i++)
+		{
+			r = cmp(array[i]);
+			if (r)
+				break;
+		}
+		if (i < size)
+			return (i);
+	}
+	return (-1);
 }
