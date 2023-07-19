@@ -8,18 +8,39 @@
  *
  * Return: void
  */
-int main(int argc, char *argv[])
+int main(int agrc, int *argv[])
 {
-	int index;
+	int bytes, index;
+	int (*address)(int, char **) = main;
+	unsigned char opcode;
 
-	if (array == NULL || cmp == NULL)
-		return (-1);
-
-	for (index = 0; index < size; index++)
+	if (argc != 2)
 	{
-		if (cmp(array[index]) != 0)
-			return (index);
+		printf("Error\n");
+		exit(1);
 	}
 
-	return (-1);
+	bytes = atoi(argv[1]);
+
+	if (bytes < 0)
+	{
+		printf("Error\n");
+		exit(2);
+	}
+
+	for (index = 0; index < bytes; index++)
+	{
+		opcode = *(unsigned char *)address;
+		printf("%.2x", opcode);
+
+		if (index == bytes - 1)
+			continue;
+		printf(" ");
+
+		address++;
+	}
+
+	printf("\n");
+
+	return (0);
 }
