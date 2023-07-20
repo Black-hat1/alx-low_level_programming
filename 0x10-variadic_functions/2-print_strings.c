@@ -13,7 +13,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 {
 	unsigned int a;
 	va_list my_list;
-	
+
 	va_start(my_list, n);
 
 	for (a = 0; a < n; a++)
@@ -30,5 +30,5 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	}
 	va_end(my_list);
 
-	prinft("\n"):
+	printf("\n");
 }
