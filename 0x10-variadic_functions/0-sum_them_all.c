@@ -7,20 +7,20 @@
  *
  * Return: returns the sum
  */
-int sum_them_all(const unsigned int n, ...);
+int sum_them_all(const unsigned int n, ...)
 {
-	va_list ap;
-	unsigned int i, sum;
+	unsigned int sum = 0, i;
+	va_list ls;
 
-	va_start (ap, n);
+	va_start(ls, n);
 
-	sum = 0;
 	for (i = 0; i < n; i++)
-		sum += va_arg (ap, int);
+		sum += va_arg(ls, int);
 
-	va_end (ap);
+	va_end(ls);
+
 	return (sum);
 
 	if (n == 0)
-		return (0);
+	return (0);
 }
