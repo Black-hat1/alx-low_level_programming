@@ -14,23 +14,23 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int fp;
+	int fd;
 	ssize_t lenr, lenw;
 	char *buffer;
 
 	if (filename == NULL)
 		return (0);
 	fd = open(filename, O_RDONLY);
-	if (fp == -1)
+	if (fd == -1)
 		return (0);
 	buffer = malloc(sizeof(char) * letters);
 	if (buffer == NULL)
 	{
-		close(fp);
+		close(fd);
 		return (0);
 	}
-	lenr = read(fp, buffer, letters);
-	close(fp);
+	lenr = read(fd, buffer, letters);
+	close(fd);
 	if (lenr == -1)
 	{
 		free(buffer);
